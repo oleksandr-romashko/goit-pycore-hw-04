@@ -4,7 +4,7 @@ import logging
 from utils.file_handler import retrieve_line_data
 from utils.math import calculate_total, calculate_average
 
-DATA_FILE_PATH = "task_1/test_salary_data.txt"
+DATA_FILE_PATH = "task_1/salary_file.txt"
 LOG_FILE_PATH = "task_1/task_1.log"
 
 current_folder_path = Path(__file__).parent
