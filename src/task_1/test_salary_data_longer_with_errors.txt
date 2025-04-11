@@ -1,0 +1,24 @@
+Alex Korp,3000
+Nikita Borisenko,2000
+Sitarama Raju,1000
+Maria Lopez,4000
+John Doe,3500
+Jane Smith,2800
+Akira Tanaka,3200
+Liu Wei,3100
+Amira Hassan,3300
+Carlos Mendes,3600
+Emily Clark,3900
+Omar El-Sayed,2500
+Sophie Dubois,3700
+Ivan Petrov,3400
+Raj Patel,2900
+2700
+Kim Yuna,  
+Diego Morales,
+Hannah Berg
+Tommy Nguyen,abc
+  
+Max Patel,2900.43
+Rick Moralez,-2000
+Tim Goldberg, 0

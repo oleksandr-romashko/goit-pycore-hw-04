@@ -17,7 +17,7 @@ This assignment consists of 4 parts in total, each specified separately and has 
 
 #### Solution:
 
-Solution for this task is located in the [src/task01/salary_calculator.py](./src/task01/salary_calculator.py) file.
+Solution for this task is located in the [src/salary_calculator.py](./src/salary_calculator.py) file.
 
 #### Task description:
 
