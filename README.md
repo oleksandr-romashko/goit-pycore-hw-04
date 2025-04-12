@@ -11,6 +11,118 @@
 
 This assignment consists of 4 parts in total, each specified separately and has a link to the solution file.
 
+### Project Setup and Run Instructions
+
+#### Prerequisites
+
+Before starting, ensure that you have the following installed:
+
+* Python 3.7+ (Make sure python and pip are available in your terminal)
+* Git (optional, for version control)
+
+#### Setting Up the Development Environment
+
+**1. Clone the Repository**
+
+If you haven't cloned the project yet, you can do so using:
+
+```bash
+git clone https://github.com/oleksandr-romashko/goit-pycore-hw-04.git
+cd goit-pycore-hw-04
+```
+
+or download zip archive with code directly [from the repository](https://github.com/oleksandr-romashko/goit-pycore-hw-04/archive/refs/heads/main.zip).
+
+**2. Create a Virtual Environment**
+
+**Linux/macOS (using `bash` or `zsh`):**
+
+Run the setup.sh script:
+
+```bash
+source setup.sh
+```
+
+This will:
+* Create a virtual environment (`.venv`).
+* Activate the virtual environment.
+* Install dependencies listed in `requirements.txt`.
+* Set the `PYTHONPATH` for module imports.
+
+**Windows (using Command Prompt or PowerShell):**
+
+**1. For Command Prompt:**
+
+If you're using Command Prompt to set up your development environment, you can run the `setup.bat` script:
+
+```cmd
+setup.bat
+```
+This will:
+* Create a virtual environment (.venv).
+* Activate the virtual environment.
+* Install dependencies listed in requirements.txt.
+* Set the `PYTHONPATH` for module imports.
+
+**2. For PowerShell:**
+
+If you're using PowerShell to set up your development environment, you can run the `setup.ps1` script:
+
+```powershell
+.\setup.ps1
+```
+
+This will:
+* Create a virtual environment (.venv).
+* Activate the virtual environment.
+* Install dependencies listed in requirements.txt.
+* Set the PYTHONPATH for module imports.
+
+#### Running the Project
+Once your virtual environment is set up, you can run the task scripts.
+
+**1. Running the Tasks in VS Code**
+
+Once the virtual environment is activated and `PYTHONPATH` is set, you can run each of the task files directly from VS Code. Make sure that your `settings.json` (in `.vscode` folder) is correctly set up, as discussed previously.
+
+* **Task 1:**
+  ```bash
+  python src/task_1/main.py
+  ```
+* **Task 2:**
+  ```bash
+  python src/task_2/main.py
+  ```
+* **Task 3:**
+  ```bash
+  python src/task_3/main.py
+  ```
+* **Task 4:**
+  ```bash
+  python src/task_4/main.py
+  ```
+
+VS Code will automatically use the virtual environment and set the correct `PYTHONPATH` if you’ve configured your settings properly.
+
+**2. Running the Tasks from the Command Line**
+
+After setting up your virtual environment and setting the `PYTHONPATH`, you can run the tasks directly from the terminal.
+
+Each of these commands will run the corresponding task script:
+
+```bash
+python src/task_1/main.py
+```
+```bash
+python src/task_2/main.py
+```
+```bash
+python src/task_3/main.py
+```
+```bash
+python src/task_4/main.py
+```
+
 <details>
 
 <summary>Assignment 1 - Calculate salary from data in a file</summary>
