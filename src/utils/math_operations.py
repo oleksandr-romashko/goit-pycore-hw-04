@@ -32,3 +32,13 @@ def calculate_average(salaries: list[int]) -> int:
         return 0
     
     return int(round(calculate_total(salaries) / len(salaries), 0))
+
+
+# Test for calculate_total
+assert calculate_total([1000, 2000, 3000]) == 6000, "Test Failed (calculate_total): Basic Test"
+assert calculate_total([]) == 0, "Test Failed (calculate_total): Empty List"
+
+# Test for calculate_average
+assert calculate_average([1000, 2000, 3000]) == 2000, "Test Failed (calculate_average): Basic Test"
+assert calculate_average([]) == 0, "Test Failed (calculate_average): Empty List"
+assert calculate_average([2000]) == 2000, "Test Failed (calculate_average): Single Element"
