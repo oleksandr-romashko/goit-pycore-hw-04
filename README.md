@@ -49,9 +49,7 @@ This will:
 * Install dependencies listed in `requirements.txt`.
 * Set the `PYTHONPATH` for module imports.
 
-**Windows (using Command Prompt or PowerShell):**
-
-**1. For Command Prompt:**
+**Windows (using Command Prompt):**
 
 If you're using Command Prompt to set up your development environment, you can run the `setup.bat` script:
 
@@ -63,20 +61,6 @@ This will:
 * Activate the virtual environment.
 * Install dependencies listed in requirements.txt.
 * Set the `PYTHONPATH` for module imports.
-
-**2. For PowerShell:**
-
-If you're using PowerShell to set up your development environment, you can run the `setup.ps1` script:
-
-```powershell
-.\setup.ps1
-```
-
-This will:
-* Create a virtual environment (.venv).
-* Activate the virtual environment.
-* Install dependencies listed in requirements.txt.
-* Set the PYTHONPATH for module imports.
 
 #### Running the Project
 Once your virtual environment is set up, you can run the task scripts.
