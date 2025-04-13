@@ -255,3 +255,59 @@ Expected result:
 ```
 
 </details>
+
+<details>
+
+<summary>Assignment 3 - Directory Structure Visualizer</summary>
+
+#### Solution:
+
+Solution for this task is located in the following files:
+* [./src/task_3/main.py](./src/task_3/main.py) - main entry point file with main business logic.
+
+#### Task description:
+
+Create a Python script that accepts a directory path as a command-line argument and visualizes the structure of that directory, displaying the names of all subdirectories and files. For better visual distinction, use different colors for directories and files.
+
+#### Recommendations to the implementation:
+
+1. First, install **colorama**. Use virtual environment and install package using `pip`.
+2. Use `sys` module to get the path argument from the command line.
+3. Use `pathlib` to work with files and directories.
+4. Use `colorama` for styled terminal output.
+
+#### Evaluation criteria:
+
+1. Use of a virtual environment.
+2. Correct handling and validation of the input directory path.
+3. Accurate and visually structured output of the directory tree.
+4. Proper use of colors for files and folders using **colorama**.
+5. Code quality: readability, structure, comments.
+
+#### Example:
+
+If you run the script and pass an absolute path to a directory as a parameter:
+
+```bash
+python hw03.py /path/to/your/directory
+```
+
+This will result in the terminal displaying a list of all subdirectories and files in the specified directory, using different colors for directories and files to make the file structure easier to read visually.
+
+For a directory with the following structure:
+
+```
+📦picture
+ ┣ 📂Logo
+ ┃ ┣ 📜IBM+Logo.png
+ ┃ ┣ 📜ibm.svg
+ ┃ ┗ 📜logo-tm.png
+ ┣ 📜bot-icon.png
+ ┗ 📜mongodb.jpg
+```
+
+The script should output a similar structure.
+
+![task 3 output example](./assets/task_3_output_example.png)
+
+</details>
