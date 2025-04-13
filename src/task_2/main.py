@@ -22,22 +22,23 @@ if __name__ == "__main__":
 
     try:
         # Retrieve cats data with potential content lines issues
-        cats_info, errors = get_cats_info(current_folder_path / DATA_FILE_REL_PATH)
+        cats_info, content_err = get_cats_info(current_folder_path / DATA_FILE_REL_PATH)
 
         # Report potential file content lines issues
-        if errors:
-            report_content_errors(errors, LOG_FILE_REL_PATH)
+        if content_err:
+            report_content_errors(content_err, LOG_FILE_REL_PATH)
 
         if cats_info:
             # Display results
             print(cats_info)
         else:
             # Handle case and warn user when all file lines have issues
-            if errors:
+            if content_err:
                 print_and_log(
                     f'After processing "{DATA_FILE_REL_PATH}" file, no valid data found in the file".',
                     level="WARNING"
                 )
-    except (FileNotFoundError, ValueError) as exc:
-        # Any non-content related errors
-        print_and_log(exc, level="ERROR")
+    except (FileNotFoundError, PermissionError, IsADirectoryError, OSError, ValueError) as exc:
+        print_and_log(str(exc), level="ERROR")
+    except Exception as exc:
+        print_and_log(f"An unexpected error occurred: {exc}", level="ERROR")
