@@ -85,43 +85,58 @@ Once your virtual environment is set up, you can run the task scripts.
 
 Once the virtual environment is activated and `PYTHONPATH` is set, you can run each of the task files directly from VS Code. Make sure that your `settings.json` (in `.vscode` folder) is correctly set up, as discussed previously.
 
-* **Task 1:**
-  ```bash
-  python src/task_1/main.py
-  ```
-* **Task 2:**
-  ```bash
-  python src/task_2/main.py
-  ```
-* **Task 3:**
-  ```bash
-  python src/task_3/main.py
-  ```
-* **Task 4:**
-  ```bash
-  python src/task_4/main.py
-  ```
-
 VS Code will automatically use the virtual environment and set the correct `PYTHONPATH` if you’ve configured your settings properly.
 
 **2. Running the Tasks from the Command Line**
 
 After setting up your virtual environment and setting the `PYTHONPATH`, you can run the tasks directly from the terminal.
 
-Each of these commands will run the corresponding task script:
+Each of these commands will run the corresponding task script (please note, that for Linux/macOS you might use `python3` instead of `python` command):
+
+Run task 1:
 
 ```bash
 python src/task_1/main.py
 ```
+
+Run task 2:
+
 ```bash
 python src/task_2/main.py
 ```
+
+Run task 3:
+
 ```bash
 python src/task_3/main.py
 ```
+
+Run task 4:
+
 ```bash
 python src/task_4/main.py
 ```
+
+**Alternatively, you can use a script to run the tasks** (apply respective task number to run respective task script):
+
+* **On Linux/macOS (shell script)**:
+
+  Run task 1 with the script:
+  ```bash
+  ./src/task_1/run_task_1.sh
+  ```
+
+  Make sure the shell scripts have execution permission by running:
+
+  ```bash
+  chmod +x src/task_1/run_task_1.sh
+  ```
+
+* **On Windows (batch script)**:
+
+  ```cmd
+  src\task_1\run_task_1.bat
+  ```
 
 <details>
 
@@ -129,7 +144,9 @@ python src/task_4/main.py
 
 #### Solution:
 
-Solution for this task is located in the [src/salary_calculator.py](./src/salary_calculator.py) file.
+Solution for this task is located in the following files:
+* [./src/task_1/main.py](./src/task_1/main.py) - main entry point file.
+* [./src/task_1/salary_calculator.py](./src/task_1/salary_calculator.py) - file with main business logic.
 
 #### Task description:
 
@@ -183,6 +200,74 @@ Expected result:
 
 ```shell
 Загальна сума заробітної плати: 6000, Середня заробітна плата: 2000
+```
+
+</details>
+
+<details>
+
+<summary>Assignment 2 - Get cat info from data in a file</summary>
+
+#### Solution:
+
+Solution for this task is located in the following files:
+* [./src/task_2/main.py](./src/task_2/main.py) - main entry point file.
+* [./src/task_2/cats_inventory.py](./src/task_2/cats_inventory.py) - file with main business logic.
+
+#### Task description:
+
+There is a text file containing information about cats. Each line of the file contains a unique identifier for the cat, its name, and age, separated by a comma. 
+
+For example:
+```
+60b90c1c13067a15887e1ae1,Tayson,3
+60b90c2413067a15887e1ae2,Vika,1
+60b90c2e13067a15887e1ae3,Barsik,2
+60b90c3b13067a15887e1ae4,Simon,12
+60b90c4613067a15887e1ae5,Tessi,5
+```
+
+The task is to develop a function `get_cats_info(path)` that reads this file and returns a list of dictionaries containing information about each cat.
+
+#### Task requirements:
+
+1. The function `get_cats_info(path)` should accept one argument - the path to the text file (`path`).
+2. The file contains data about cats, with each record containing a unique identifier, the cat's name, and age.
+3. The function should return a list of dictionaries, where each dictionary contains information about one cat.
+
+#### Recommendations to the implementation:
+
+1. Use `with` to safely read the file.
+2. Remember to set the file encoding when opening files.
+3. For each line in the file, use `split(',')` to get the identifier, name, and age of the cat.
+4. Create a dictionary with keys "`id`", "`name`", and "`age`" for each cat, and add it to the list, which will be returned.
+5. Handle possible exceptions related to reading the file.
+
+#### Evaluation criteria:
+
+1. The function should correctly process the data and return the correct list of dictionaries.
+2. Proper exception and error handling should be implemented.
+3. The code should be clean, well-structured, and easy to understand.
+
+#### Example:
+
+Function usage:
+
+```python
+cats_info = get_cats_info("path/to/cats_file.txt")
+print(cats_info)
+```
+
+Expected result:
+
+```shell
+[
+    {"id": "60b90c1c13067a15887e1ae1", "name": "Tayson", "age": "3"},
+    {"id": "60b90c2413067a15887e1ae2", "name": "Vika", "age": "1"},
+    {"id": "60b90c2e13067a15887e1ae3", "name": "Barsik", "age": "2"},
+    {"id": "60b90c3b13067a15887e1ae4", "name": "Simon", "age": "12"},
+    {"id": "60b90c4613067a15887e1ae5", "name": "Tessi", "age": "5"},
+]
 ```
 
 </details>
