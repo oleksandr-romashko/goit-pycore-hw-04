@@ -1,6 +1,16 @@
 """
 This script calculates the total and average salary from a given dataset file.
-It also logs any issues found in the content of the dataset.
+
+It initializes logging, reads a salary file, processes the data,
+logs any issues found in the content, and prints out the results.
+
+Expected dataset format:
+Each line in the file should contain a name and salary,
+separated by commas, e.g.:
+John Doe,5500
+Jane Smith,4900
+
+If any line is invalid, the issue will be logged.
 """
 
 from pathlib import Path
@@ -16,22 +26,28 @@ from salary_calculator import total_salary
 from utils.logging_handler import init_logging, print_and_log
 from utils.error_handler import report_content_errors
 
-DATA_FILE_REL_PATH = "dataset/salary_file.txt"
-LOG_FILE_REL_PATH = "task_1.log"
+def main():
+    """
+    Main entry point of the script.
 
-current_folder_path = Path(__file__).parent
+    Initializes logging, reads salary data from a file, calculates the total and average salary,
+    reports any content errors, and prints the results to the console.
+    """
+    data_file_rel_path = "dataset/salary_file.txt"
+    log_file_rel_path = "task_1.log"
 
-if __name__ == "__main__":
+    current_folder_path = Path(__file__).parent
+
     # Initialize the environment (e.g., logging)
-    init_logging(current_folder_path / LOG_FILE_REL_PATH)
+    init_logging(current_folder_path / log_file_rel_path)
 
     try:
         # Retrieve calculated total and average salary data with potential content lines issues
-        (total, average), content_err = total_salary(current_folder_path / DATA_FILE_REL_PATH)
+        (total, average), content_err = total_salary(current_folder_path / data_file_rel_path)
 
         # Report potential file content lines issues
         if content_err:
-            report_content_errors(content_err, LOG_FILE_REL_PATH)
+            report_content_errors(content_err, log_file_rel_path)
 
         # Display results
         if total == 0 or average == 0:
@@ -43,3 +59,6 @@ if __name__ == "__main__":
         print_and_log(str(exc), level="ERROR")
     except Exception as exc:
         print_and_log(f"An unexpected error occurred: {exc}", level="ERROR")
+
+if __name__ == "__main__":
+    main()
