@@ -311,3 +311,174 @@ The script should output a similar structure.
 ![task 3 output example](./assets/task_3_output_example.png)
 
 </details>
+
+<details>
+
+<summary>Assignment 4 - CLI assistant bot</summary>
+
+#### Solution:
+
+Solution for this task is located in the [./src/task_4/](./src/task_4/) folder, specifically in the following files:
+* [src/task_4/main.py](src/task_4/main.py) - main entry point file.
+* [src/task_4/input_parser.py](src/task_4/input_parser.py) - user input parser.
+* [src/task_4/contacts_validator.py](src/task_4/contacts_validator.py) - file with validation functions
+* [src/task_4/contacts_handler.py](src/task_4/contacts_handler.py) - File with main business logic related to contacts management.
+* [src/task_4/constants.py](src/task_4/constants.py) - file with constants (may be moved e.g. into utils folder later).
+
+#### Task description:
+
+Create a console assistant bot that will recognize commands entered from the keyboard and respond according to the input command.
+
+In this work focus would be on the interface of the assistant bot itself. The simplest and most convenient interface at the early stages of development is a console application CLI (Command Line Interface). A CLI is relatively easy to implement.
+
+Any CLI consists of three main components:
+
+* **Command parser** - the part responsible for analyzing the strings entered by the user, extracting keywords and command modifiers.
+* **Command handler functions** - a set of functions (also known as handlers) responsible for directly executing the commands.
+* **Request-response loop** - this part of the application is responsible for receiving input from the user and returning the response from the handler function.
+
+In the first stage, our assistant bot should be able to:
+
+* store a name and phone number,
+* find a phone number by name,
+* update a saved phone number,
+* display all saved records in the console.
+
+To implement this simple logic, we will use a dictionary, where the user's name is the key and the phone number is the value.
+
+#### Task requirements:
+
+* The program must have a main() function that manages the main command-processing loop.
+* Implement a parse_input() function that will parse the user input string into a command and its arguments. Commands and arguments must be recognized regardless of input case (case-insensitive).
+* Your program must wait for user input and process it using the appropriate handler functions. If the user enters the command "exit" or "close", the program should terminate.
+* Write handler functions for different commands, such as add_contact(), change_contact(), show_phone(), etc.
+* Use a Python dictionary to store names and phone numbers. The name will be the key, and the phone number will be the value.
+* Your program must be able to identify and notify the user of incorrectly entered commands.
+
+#### Recommendations to the implementation:
+
+First, we need to systematize the format of commands for our console assistant bot. This will help us understand which functions we need to create for each command. Let’s do that:
+
+1. The "hello" command
+For now, this doesn’t require a separate function; a simple print will do:
+* Input: "hello"
+* Output: "How can I help you?"
+
+2. The "add [name] [phone number]" command
+We’ll create a function add_contact for this command:
+* Input: "add John 1234567890"
+* Output: "Contact added."
+
+3. The "change [name] [new phone number]" command
+We'll create a function change_contact for this:
+* Input: "change John 0987654321"
+* Output: "Contact updated." or an error message if the name isn't found
+
+4. The "phone [name]" command
+We’ll create a function show_phone for this:
+* Input: "phone John"
+* Output: [phone number] or an error message if the name isn't found
+
+5. The "all" command
+We’ll create a function show_all for this:
+* Input: "all"
+* Output: All saved contacts with their phone numbers
+
+6. The "close" or "exit" commands
+Since these should terminate the program, we don’t need a separate function:
+* Input: either of these words
+* Output: "Good bye!" and the bot stops running
+
+Any command that doesn’t match the formats above will be considered invalid, and the bot will output: "Invalid command."
+
+Let's Start with a Simple Version of the CLI Bot:
+```python
+def main():
+    print("Welcome to the assistant bot!")
+    while True:
+        command = input("Enter a command: ").strip().lower()
+
+        if command in ["close", "exit"]:
+            print("Good bye!")
+            break
+        elif command == "hello":
+            print("How can I help you?")
+        else:
+            print("Invalid command.")
+
+if __name__ == "__main__":
+    main()
+```
+
+When the program starts, it prints "`Welcome to the assistant bot!`" and enters an infinite loop, waiting for user input.
+
+If the user enters "close" or "exit", the program prints "Good bye!" and ends.
+
+```python
+if command in ["close", "exit"]:
+    print("Good bye!")
+    break
+```
+
+If the user enters "hello", it responds with "How can I help you?".
+Any other command results in: "Invalid command."
+
+Example output:
+
+```bash
+Welcome to the assistant bot!
+Enter a command: test
+Invalid command.
+Enter a command: hello
+How can I help you?
+Enter a command: exit
+Good bye!
+This code creates a basic interactive command-line assistant that responds to a limited set of commands. It implements a request-response loop which is a great starting point for adding more functionality in future assignments.
+
+Now Let’s Add a Command Parser
+We’ll rewrite the code like this:
+
+python
+Copy
+Edit
+def parse_input(user_input):
+    cmd, *args = user_input.split()
+    cmd = cmd.strip().lower()
+    return cmd, *args
+
+def main():
+    print("Welcome to the assistant bot!")
+    while True:
+        user_input = input("Enter a command: ")
+        command, *args = parse_input(user_input)
+
+        if command in ["close", "exit"]:
+            print("Good bye!")
+            break
+        elif command == "hello":
+            print("How can I help you?")
+        else:
+            print("Invalid command.")
+
+if __name__ == "__main__":
+    main()
+```
+ 
+... etc.
+
+#### Evaluation criteria:
+
+1. The bot must run in an infinite loop, waiting for the user’s command.
+2. The bot terminates its execution if it encounters the words "close" or "exit".
+3. The bot is not case-sensitive to the input commands.
+4. The bot accepts the following commands:
+    1. "hello" → responds in the console with the message: "How can I help you?"
+    2. "add username phone" → with this command, the bot stores a new contact in memory (e.g., in a dictionary). The user provides a username and a phone number, separated by a space.
+    3. "change username phone" → with this command, the bot updates the phone number for an existing contact username.
+    4. "phone username" → with this command, the bot displays the phone number for the specified contact username.
+    5. "all" → with this command, the bot outputs all saved contacts with their phone numbers in the console.
+    6. "close", "exit" → when either of these commands is entered, the bot outputs "Good bye!" in the console and exits.
+5. The logic for these commands must be implemented in separate functions, and each of these functions should take one or more strings as input and return a string.
+6. All user interaction (i.e., print() and input()) should occur only in the main() function.
+
+</details>
