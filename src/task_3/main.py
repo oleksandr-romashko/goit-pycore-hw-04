@@ -34,14 +34,18 @@ def main():
     """
 
     # Initialize colorama for Windows compatibility
-    init(autoreset=True) 
+    init(autoreset=True)
 
-    # Validate arguments
-    if len(sys.argv) < 2:
-        print(Fore.RED + "Error: Please provide a path to a directory as a command-line argument.")
-        sys.exit(1)
+    # Determine the base path
+    args = []
+    for arg in sys.argv[1:]:
+        if not arg.startswith('--'):
+            args.append(arg)
 
-    path = (Path(__file__).parent / sys.argv[1]).resolve()
+    if args:
+        path = (Path(__file__).parent / args[0]).resolve()
+    else:
+        path = Path.cwd()
 
     # Validate path
     if not path.exists():
@@ -53,7 +57,7 @@ def main():
         sys.exit(1)
 
      # Visualize
-    if len(sys.argv) >= 3 and sys.argv[2] == "--tree":
+    if "--tree" in sys.argv:
         # Option - More complex architecture-wise solution using
         #          data structure-based tree representation
         dir_tree = build_dir_tree(path)
