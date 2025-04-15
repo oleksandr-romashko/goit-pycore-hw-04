@@ -274,7 +274,7 @@ def main_alternative():
 if __name__ == "__main__":
     try:
         # Choose solution approach
-        if len(sys.argv) > 1 and "--alternative" in sys.argv:
+        if "--alternative" in sys.argv:
             main_alternative()
         else:
             main()
