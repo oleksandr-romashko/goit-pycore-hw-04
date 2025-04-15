@@ -3,7 +3,7 @@ WELCOME_MESSAGE_SUBTITLE = "Here you have the list of available options for you"
 MENU_HELP_STR = """hello                         - Greet the user
 add <username> <phone>        - Add a new contact
 change <username> <new_phone> - Update contact's phone number
-phone <username>              - Show contact's phone number (9-15 digits, may include '+' at the beginning)
+phone <username>              - Show contact's phone number
 all                           - Display all contacts
 help                          - Show available commands
 exit (or close)               - Exit the app"""
