@@ -30,13 +30,34 @@ def change_contact(args: list[str], contacts: dict[str, str]) -> str:
     return "Contact updated."
 
 def show_phone(args: list[str], contacts: dict[str, str]) -> str:
-    """Display the phone number for the specified contact.
+    """Display the phone number(s) for the specified contact (case-insensitive, partial match allowed).
 
-    args: [username]
+    args: [search_term]
     """
-    username = args[0]
-    return f"{username} number is {contacts[username]}"
+    search_term = args[0].lower()
+    matches = []
+
+    for username, phone in contacts.items():
+        # case-insensitive, partial match
+        if search_term in username.lower():
+            matches.append((username, phone))
+
+    if not matches:
+        return "No matches found."
+
+    # Find length of the longest username for alignment
+    max_len = max(len(username) for username, _ in matches)
+
+    # Create aligned output
+    output_lines = [f"  {username.ljust(max_len)} : {phone}" for username, phone in matches]
+    return f"Found {len(matches)} match{'es' if len(matches) != 1 else ''}:\n" + "\n".join(output_lines)
+
 
 def show_all(_: list[str], contacts: dict[str, str]) -> str:
     """Return all saved contacts with their phone numbers."""
-    return "\n".join(f"{username} number is {phone}" for username, phone in contacts.items())
+    # Find length of the longest username for alignment
+    max_len = max(len(username) for username in contacts)
+
+    # Create aligned output
+    output_lines = [f"  {username.ljust(max_len)} : {phone}" for username, phone in contacts.items()]
+    return f"You have {len(contacts)} contact{'s' if len(contacts) != 1 else ''}:\n" + "\n".join(output_lines)
