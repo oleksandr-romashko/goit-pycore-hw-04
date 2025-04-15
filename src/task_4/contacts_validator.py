@@ -6,7 +6,7 @@ Validators raise ValueError with descriptive messages if validation fails.
 """
 import re
 
-from constants import HELP_AWARE_TIP, PHONE_FORMAT_DESC_STR
+from constants import PHONE_FORMAT_DESC_STR
 
 def validate_are_two_arguments(args: list[str], _) -> None:
     """Ensure two non-empty arguments are provided: username and phone number."""
@@ -40,7 +40,7 @@ def validate_not_phone_duplicate(args: list[str], contacts: dict) -> None:
 def validate_contacts_not_empty(_, contacts: dict) -> None:
     """Ensure there is at least one contact in the list."""
     if not contacts:
-        raise ValueError(f"You have no contacts. Please, {HELP_AWARE_TIP} to add one.")
+        raise ValueError("You don't have any contacts yet, but you can add one anytime.")
 
 def validate_phone_number(args: list[str], _) -> None:
     """Validate phone number: optional '+', 9-15 digits total."""
