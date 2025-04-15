@@ -19,10 +19,19 @@ def validate_is_one_argument_username(args: list[str], _) -> None:
         raise ValueError("You must provide username as a single argument.")
 
 def validate_contact_not_in_contacts(args: list[str], contacts: dict) -> None:
-    """Ensure the contact with the given username does not already exist."""
+    """Ensure the contact with the given username does not already exist (case-insensitive)."""
     username = args[0]
+
+    # Check for exact match (avoid unnecessary iteration if an exact match is found early)
     if username in contacts:
         raise ValueError(f"Contact with username '{username}' already exists.")
+    
+    # Check for case-insensitive match
+    for existing_username in contacts:
+        if existing_username.lower() == username.lower():
+            raise ValueError(
+                f"Contact with username '{username}' already exists, but under a different name: '{existing_username}'."
+            )
 
 def validate_contact_name_exists(args: list[str], contacts: dict) -> None:
     """Ensure a contact with the provided username exists."""
