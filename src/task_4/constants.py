@@ -1,2 +1,15 @@
-HELP_TIP_STR = "type 'help' for the available list of commands"
-PHONE_FORMAT_DESC_STR = "9-15 digits, may include '+' at the beginning"
+WELCOME_MESSAGE_TITLE = "Welcome to the assistant bot!"
+WELCOME_MESSAGE_SUBTITLE = "Here you have the list of available options for you"
+MENU_HELP_STR = """hello                         - Greet the user
+add <username> <phone>        - Add a new contact
+change <username> <new_phone> - Update contact's phone number
+phone <username>              - Show contact's phone number (9-15 digits, may include '+' at the beginning)
+all                           - Display all contacts
+help                          - Show available commands
+exit (or close)               - Exit the app"""
+HELLO_MESSAGE = "How can I help you?"
+INVALID_COMMAND_MESSAGE = "Invalid command"
+INVALID_EMPTY_COMMAND_MESSAGE = "Invalid empty command, please try again"
+HELP_AWARE_TIP = "type 'help' for the available list of commands"
+PHONE_FORMAT_DESC_STR = "9-15 digits, optionally starting with '+'"
+EXIT_MESSAGE = "Good bye!"
