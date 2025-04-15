@@ -6,12 +6,12 @@ Validators raise ValueError with descriptive messages if validation fails.
 """
 import re
 
-from constants import HELP_TIP_STR, PHONE_FORMAT_DESC_STR
+from constants import HELP_AWARE_TIP, PHONE_FORMAT_DESC_STR
 
 def validate_are_two_arguments(args: list[str], _) -> None:
     """Ensure two non-empty arguments are provided: username and phone number."""
     if len(args) != 2 or len(args[0].strip()) == 0 or len(args[1].strip()) == 0:
-        raise ValueError("You must provide both a username and a phone number.")
+        raise ValueError("You must provide two arguments, username and a phone number.")
     
 def validate_is_one_argument_username(args: list[str], _) -> None:
     """Ensure a single non-empty argument (username) is provided."""
@@ -40,17 +40,15 @@ def validate_not_phone_duplicate(args: list[str], contacts: dict) -> None:
 def validate_contacts_not_empty(_, contacts: dict) -> None:
     """Ensure there is at least one contact in the list."""
     if not contacts:
-        raise ValueError(f"You have no contacts. Please, {HELP_TIP_STR} to add one.")
+        raise ValueError(f"You have no contacts. Please, {HELP_AWARE_TIP} to add one.")
 
 def validate_phone_number(args: list[str], _) -> None:
-    """Validate phone number: optional '+', 9–15 digits total."""
+    """Validate phone number: optional '+', 9-15 digits total."""
     phone = args[1]
     # Remove all non-digit characters for counting digits
     digits_only = re.sub(r'\D', '', phone)
 
-    if not (9 <= len(digits_only) <= 15):
+    if not 9 <= len(digits_only) <= 15:
         raise ValueError(
-            f"Invalid phone number '{phone}'. "
-            f"Expected 9–15 digits, optionally starting with '+'. "
-            f"({PHONE_FORMAT_DESC_STR})"
+            f"Invalid phone number '{phone}'. Expected {PHONE_FORMAT_DESC_STR}."
         )
