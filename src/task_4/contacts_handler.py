@@ -1,3 +1,16 @@
+"""
+Simple contact management module.
+
+This module provides basic functions to manage a contact list,
+including adding, updating, and displaying contact phone numbers.
+
+Functions:
+- add_contact(args, contacts): Adds a new contact.
+- change_contact(args, contacts): Changes an existing contact's phone number.
+- show_phone(args, contacts): Shows the phone number of a contact.
+- show_all(_, contacts): Shows all saved contacts.
+"""
+
 def add_contact(args: list[str], contacts: dict[str, str]) -> str:
     """Add a new contact with username and phone number.
 
