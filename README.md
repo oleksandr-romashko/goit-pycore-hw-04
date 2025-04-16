@@ -132,6 +132,19 @@ Solution for this task is located in the following files:
 * [./src/task_1/main.py](./src/task_1/main.py) - main entry point file.
 * [./src/task_1/salary_calculator.py](./src/task_1/salary_calculator.py) - file with main business logic.
 
+Result screenshot - file with no issues:
+
+<p align="center">
+  <img align="left" src="./assets/results/task_1_result_no_issues.png" title="task 1 screenshot no issues" alt="result screenshot">
+</p>
+
+Result screenshot - file with issues:
+
+<p align="center">
+  <img align="left" src="./assets/results/task_1_result_with_issues.png" title="task 1 screenshot with issues" alt="result screenshot">
+</p>
+
+
 #### Task description:
 
 There is a text file containing information about the monthly salaries of developers in your company.
@@ -197,6 +210,18 @@ Expected result:
 Solution for this task is located in the following files:
 * [./src/task_2/main.py](./src/task_2/main.py) - main entry point file.
 * [./src/task_2/cats_inventory.py](./src/task_2/cats_inventory.py) - file with main business logic.
+
+Result screenshot - file with no issues:
+
+<p align="center">
+  <img align="left" src="./assets/results/task_2_result_no_issues.png" title="task 2 screenshot no issues" alt="result screenshot">
+</p>
+
+Result screenshot - file with issues:
+
+<p align="center">
+  <img align="left" src="./assets/results/task_2_result_with_issues.png" title="task 2 screenshot with issues" alt="result screenshot">
+</p>
 
 #### Task description:
 
@@ -265,6 +290,18 @@ Expected result:
 Solution for this task is located in the following files:
 * [./src/task_3/main.py](./src/task_3/main.py) - main entry point file with main business logic.
 
+Result screenshot - with provided path to folder as argument:
+
+<p align="center">
+  <img align="left" src="./assets/results/task_3_result_with_path_arg.png" title="task 3 screenshot with path as arg" alt="result screenshot">
+</p>
+
+Result screenshot - with no arguments (uses current run folder path):
+
+<p align="center">
+  <img align="left" src="./assets/results/task_3_result_no_path_arg.png" title="task 3 screenshot no path arg" alt="result screenshot">
+</p>
+
 #### Task description:
 
 Create a Python script that accepts a directory path as a command-line argument and visualizes the structure of that directory, displaying the names of all subdirectories and files. For better visual distinction, use different colors for directories and files.
@@ -324,6 +361,12 @@ Solution for this task is located in the [./src/task_4/](./src/task_4/) folder, 
 * [src/task_4/contacts_validator.py](src/task_4/contacts_validator.py) - file with validation functions
 * [src/task_4/contacts_handler.py](src/task_4/contacts_handler.py) - File with main business logic related to contacts management.
 * [src/task_4/constants.py](src/task_4/constants.py) - file with constants (may be moved e.g. into utils folder later).
+
+Result screenshot - happy path:
+
+<p align="center">
+  <img align="left" src="./assets/results/task_4_result_happy_path.png" title="task 4 screenshot happy path" alt="result screenshot">
+</p>
 
 #### Task description:
 
