@@ -143,7 +143,7 @@ Result screenshot - file with issues:
 <p align="center">
   <img align="left" src="./assets/results/task_1_result_with_issues.png" title="task 1 screenshot with issues" alt="result screenshot">
 </p>
-
+.
 
 #### Task description:
 
@@ -222,6 +222,7 @@ Result screenshot - file with issues:
 <p align="center">
   <img align="left" src="./assets/results/task_2_result_with_issues.png" title="task 2 screenshot with issues" alt="result screenshot">
 </p>
+.
 
 #### Task description:
 
@@ -301,6 +302,7 @@ Result screenshot - with no arguments (uses current run folder path):
 <p align="center">
   <img align="left" src="./assets/results/task_3_result_no_path_arg.png" title="task 3 screenshot no path arg" alt="result screenshot">
 </p>
+.
 
 #### Task description:
 
@@ -367,6 +369,7 @@ Result screenshot - happy path:
 <p align="center">
   <img align="left" src="./assets/results/task_4_result_happy_path.png" title="task 4 screenshot happy path" alt="result screenshot">
 </p>
+.
 
 #### Task description:
 
