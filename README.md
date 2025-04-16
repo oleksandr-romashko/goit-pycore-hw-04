@@ -69,7 +69,7 @@ Once your virtual environment is set up, you can run the task scripts.
 
 Once the virtual environment is activated and `PYTHONPATH` is set, you can run each of the task files directly from VS Code. Make sure that your `settings.json` (in `.vscode` folder) is correctly set up, as discussed previously.
 
-VS Code will automatically use the virtual environment and set the correct `PYTHONPATH` if you’ve configured your settings properly.
+VS Code will automatically use the virtual environment and set the correct `PYTHONPATH` if you've configured your settings properly.
 
 **2. Running the Tasks from the Command Line**
 
@@ -92,13 +92,21 @@ python src/task_2/main.py
 Run task 3:
 
 ```bash
-python src/task_3/main.py
+python src/task_3/main.py path/to/directory
+```
+
+```bash
+python src/task_3/main.py path/to/directory --tree
 ```
 
 Run task 4:
 
 ```bash
 python src/task_4/main.py
+```
+
+```bash
+python src/task_4/main.py --alternative
 ```
 
 **Alternatively, you can use a script to run the tasks** (apply respective task number to run respective task script):
@@ -403,15 +411,15 @@ To implement this simple logic, we will use a dictionary, where the user's name 
 
 #### Recommendations to the implementation:
 
-First, we need to systematize the format of commands for our console assistant bot. This will help us understand which functions we need to create for each command. Let’s do that:
+First, we need to systematize the format of commands for our console assistant bot. This will help us understand which functions we need to create for each command. Let's do that:
 
 1. The "hello" command
-For now, this doesn’t require a separate function; a simple print will do:
+For now, this doesn't require a separate function; a simple print will do:
 * Input: "hello"
 * Output: "How can I help you?"
 
 2. The "add [name] [phone number]" command
-We’ll create a function add_contact for this command:
+We'll create a function add_contact for this command:
 * Input: "add John 1234567890"
 * Output: "Contact added."
 
@@ -421,21 +429,21 @@ We'll create a function change_contact for this:
 * Output: "Contact updated." or an error message if the name isn't found
 
 4. The "phone [name]" command
-We’ll create a function show_phone for this:
+We'll create a function show_phone for this:
 * Input: "phone John"
 * Output: [phone number] or an error message if the name isn't found
 
 5. The "all" command
-We’ll create a function show_all for this:
+We'll create a function show_all for this:
 * Input: "all"
 * Output: All saved contacts with their phone numbers
 
 6. The "close" or "exit" commands
-Since these should terminate the program, we don’t need a separate function:
+Since these should terminate the program, we don't need a separate function:
 * Input: either of these words
 * Output: "Good bye!" and the bot stops running
 
-Any command that doesn’t match the formats above will be considered invalid, and the bot will output: "Invalid command."
+Any command that doesn't match the formats above will be considered invalid, and the bot will output: "Invalid command."
 
 Let's Start with a Simple Version of the CLI Bot:
 ```python
@@ -481,8 +489,8 @@ Enter a command: exit
 Good bye!
 This code creates a basic interactive command-line assistant that responds to a limited set of commands. It implements a request-response loop which is a great starting point for adding more functionality in future assignments.
 
-Now Let’s Add a Command Parser
-We’ll rewrite the code like this:
+Now Let's Add a Command Parser
+We'll rewrite the code like this:
 
 python
 Copy
@@ -514,7 +522,7 @@ if __name__ == "__main__":
 
 #### Evaluation criteria:
 
-1. The bot must run in an infinite loop, waiting for the user’s command.
+1. The bot must run in an infinite loop, waiting for the user's command.
 2. The bot terminates its execution if it encounters the words "close" or "exit".
 3. The bot is not case-sensitive to the input commands.
 4. The bot accepts the following commands:
