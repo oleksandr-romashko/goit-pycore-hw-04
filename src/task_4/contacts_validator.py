@@ -31,7 +31,7 @@ def validate_contact_not_in_contacts(args: list[str], contacts: dict) -> None:
         if existing_username.lower() == username.lower():
             raise ValueError(
                 f"Contact with username '{username}' already exists, "
-                "but under a different name: '{existing_username}'.")
+                f"but under a different name: '{existing_username}'.")
 
 def validate_contact_name_exists(args: list[str], contacts: dict) -> None:
     """Ensure a contact with the provided username exists, case-insensitively."""
@@ -50,8 +50,8 @@ def validate_contact_name_exists(args: list[str], contacts: dict) -> None:
     # If there's a match with a different case, let the user know
     if match != username:
         raise ValueError(f"Contact '{username}' not found, "
-                         "but a contact exists under '{match}'. "
-                         "Did you mean '{match}'?")
+                         f"but a contact exists under '{match}'. "
+                         f"Did you mean '{match}'?")
 
 def validate_not_phone_duplicate(args: list[str], contacts: dict) -> None:
     """Ensure the new phone number is different from the existing one."""
