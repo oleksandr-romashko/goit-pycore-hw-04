@@ -363,7 +363,7 @@ The script should output a similar structure.
 
 <summary>Assignment 4 - CLI assistant bot</summary>
 
-#### Solution:
+#### <a name="assignment-4-task-description"></a>Solution:
 
 Solution for this task is located in the [./src/task_4/](./src/task_4/) folder, specifically in the following files:
 * [src/task_4/main.py](src/task_4/main.py) - main entry point file.
