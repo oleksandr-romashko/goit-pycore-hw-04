@@ -115,19 +115,19 @@ python src/task_4/main.py --alternative
 
   Run task 1 with the script:
   ```bash
-  ./src/task_1/run_task_1.sh
+  ./run_task_1.sh
   ```
 
   Make sure the shell scripts have execution permission by running:
 
   ```bash
-  chmod +x src/task_1/run_task_1.sh
+  chmod +x ./run_task_1.sh
   ```
 
 * **On Windows (batch script)**:
 
   ```cmd
-  src\task_1\run_task_1.bat
+  run_task_1.bat
   ```
 
 <details>
